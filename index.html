@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>AriDec Brain Quize | Subject Challenge</title>
+  <!-- Google Fonts & simple CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header with logo area (image folder) -->
+    <div class="game-header">
+      <div class="logo-area">
+        <img src="image/logo.png" alt="AriDec Logo" class="game-logo" onerror="this.style.display='none'">
+        <h1>AriDec<span> Brain Quize</span></h1>
+      </div>
+      <div class="year-badge">© 2026 Aristotle & Derick</div>
+    </div>
+
+    <!-- MAIN PANELS (dynamic via JS) -->
+    <div id="subjectPanel" class="panel active-panel">
+      <div class="panel-card">
+        <h2>📚 Select Your Challenge</h2>
+        <p class="sub-info">Pick a subject — 10 random questions, 5 minutes, 60% required to pass.</p>
+        <div id="subjectsGrid" class="subjects-grid"></div>
+      </div>
+    </div>
+
+    <div id="namePanel" class="panel">
+      <div class="panel-card name-card">
+        <div class="back-button" id="backToSubjectsFromName">← Back to Subjects</div>
+        <h2>✍️ Enter Your Name</h2>
+        <p id="selectedSubjectPreview" class="selected-subj-preview"></p>
+        <input type="text" id="playerNameInput" placeholder="e.g., James, John, Sarah" autocomplete="off" maxlength="30">
+        <button id="startQuizBtn" class="btn-primary">🚀 Start Quiz (5 min timer)</button>
+      </div>
+    </div>
+
+    <div id="quizPanel" class="panel">
+      <div class="quiz-header-bar">
+        <div class="quiz-subj-title" id="quizSubjectTitle">Subject</div>
+        <div class="timer-box"><span>⏱️</span> <span id="timerDisplay">05:00</span></div>
+        <div class="progress-badge">Q<span id="currentQNum">1</span>/<span id="totalQNum">10</span></div>
+      </div>
+      <div class="question-card" id="questionCard">
+        <div class="question-text" id="questionText">Loading...</div>
+        <div class="options-list" id="optionsContainer"></div>
+        <div class="quiz-actions">
+          <button id="prevBtn" class="btn-secondary">◀ Previous</button>
+          <button id="nextBtn" class="btn-primary">Next ▶</button>
+          <button id="submitQuizBtn" class="btn-submit">✅ Submit Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultPanel" class="panel">
+      <div class="panel-card result-card">
+        <div class="result-icon" id="resultIcon">🏆</div>
+        <h2 id="resultMessage">Congratulations!</h2>
+        <p id="resultDetail"></p>
+        <button id="playAgainBtn" class="btn-primary">🔄 Play Again</button>
+        <button id="changeSubjectBtn" class="btn-secondary">📖 Change Subject</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data module (subject & questions pool) -->
+  <script src="data.js"></script>
+  <!-- Main game logic -->
+  <script src="javascript.js"></script>
+</body>
+</html>
